@@ -22,14 +22,153 @@ void(* loadingFounction)(id, SEL ,id);
  *  @param function_name 函数名
  *  @param model         函数参数
  */
-+ (void)useClass:(id)class_name
-    loadFountion:(NSString *)function_name
-    andParameter:(id)model
++ (void)useClass:(id)class_name loadFountion:(NSString *)function_name andParameter:(id)model
 {
     SEL class_sel = NSSelectorFromString(function_name);
     IMP class_imp = [class_name methodForSelector:class_sel];
     loadingFounction = (void(*)(id, SEL, id))class_imp;
     loadingFounction(class_name,class_sel,model);
+}
+
+#pragma mark - 获取当前时间 -
+/**
+ *  获取当前时间
+ *  @return string
+ */
++ (NSString *)getCurrentDateString
+{
+    //实例化一个NSDateFormatter对象
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设定时间格式,这里可以设置成自己需要的格式
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    //用[NSDate date]可以获取系统当前时间
+    NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+    //alloc后对不使用的对象别忘了release
+    //[dateFormatter release];
+    return currentDateStr;
+}
+
+#pragma mark - 获取距离目标时间 -
+/**
+ *   获取距离目标时间
+ *  @param seconds 目标时间
+ *  @return string
+ */
++ (NSString*)getDateStringAfterSeconds:(NSTimeInterval)seconds
+{
+    NSDate *destDate = [NSDate dateWithTimeIntervalSinceNow:seconds];
+    //实例化一个NSDateFormatter对象
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //设定时间格式,这里可以设置成自己需要的格式
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    //用[NSDate date]可以获取系统当前时间
+    NSString *dateStr = [dateFormatter stringFromDate:destDate];
+    //alloc后对不使用的对象别忘了release
+    //[dateFormatter release];
+    return dateStr;
+}
+
+#pragma mark - 获取Decoument目录 -
+/**
+ *   获取Decoument目录
+ *
+ *  @return string
+ */
++ (NSString*)getDocumentDirName
+{
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+}
+
+#pragma mark - 渐变消失 -
+/**
+ *  渐变消失
+ *
+ *  @param view 目标View
+ */
++ (void)hiddeView:(UIView *)view
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:1.0];
+    [view setAlpha:0.0f];
+    [UIView commitAnimations];
+}
+
+#pragma mark - 渐变显示 -
+/**
+ *  渐变显示
+ *
+ *  @param view 目标View
+ */
++ (void)showView:(UIView *)view
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:1.0];
+    [view setAlpha:1.0f];
+    [UIView commitAnimations];
+}
+
+#pragma mark - 从时间戳获取时间 -
+/**
+ *  从时间戳获取时间
+ *
+ *  @param string_timeStamp 时间戳
+ *
+ *  @return 时间
+ */
++ (NSString *)getTimeFromTimeStamp:(NSString *)string_timeStamp
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm"];
+    // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    //设置时区,这个对于时间的处理有时很重要
+    //例如你在国内发布信息,用户在国外的另一个时区,你想让用户看到正确的发布时间就得注意时区设置,时间的换算.YYYY-MM-dd HH:mm:ss
+    //例如你发布的时间为2010-01-26 17:40:50,那么在英国爱尔兰那边用户看到的时间应该是多少呢?
+    //他们与我们有7个小时的时差,所以他们那还没到这个时间呢...那就是把未来的事做了
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+    [formatter setTimeZone:timeZone];
+    //NSDate* date = [formatter dateFromString:timeStr];
+    //------------将字符串按formatter转成nsdate
+    //NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
+    //NSString *nowtimeStr = [formatter stringFromDate:datenow];
+    //----------将nsdate按formatter格式转成nsstring
+    //时间转时间戳的方法:
+    //NSString *timeSp = [NSString stringWithFormat:@"%ld",(long)[datenow timeIntervalSince1970]];
+    //NSLog(@"timeSp:%@",timeSp);
+    //时间戳转时间的方法
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:[string_timeStamp integerValue]];
+    NSString *confromTimespStr = [formatter stringFromDate:confromTimesp];
+    return confromTimespStr;
+}
+
+
+#pragma mark - 等待弹窗 -
+/**
+ *  等待弹窗
+ *
+ *  @param _infoContent     内容
+ *  @param time                   等待时间
+ */
++ (void)showHUD:(NSString *)_infoContent afterTime:(float)time
+{
+    [MBHUDView hudWithBody:_infoContent type:MBAlertViewHUDTypeActivityIndicator hidesAfter:time show:YES];
+}
+
+#pragma mark - 提示弹窗 -
+/**
+ *  提示弹窗
+ *
+ *  @param _infoContent     内容
+ *  @param time                   等待时间
+ */
++ (void)showAlterView:(NSString *)_infoContent afterTime:(float)time
+{
+    [MBHUDView hudWithBody:_infoContent type:MBAlertViewHUDTypeDefault hidesAfter:time show:YES];
 }
 
 #pragma mark - 显示等待框 -
@@ -160,9 +299,9 @@ void(* loadingFounction)(id, SEL ,id);
      }}];
 }
 
-#pragma mark - 移除动画 -
+#pragma mark - 移出动画 -
 /**
- *  移除动画
+ *  移出动画
  *
  *  @param view 源view
  */
