@@ -99,6 +99,68 @@
         //[label_count setTag:31];
         
         // Initialization code
+        
+#pragma mark - 四按钮写法 -
+        /*  if([UIScreen mainScreen].currentMode.size.width == 320)
+         {
+         [self setFrame:CGRectMake(0, [UIScreen mainScreen].currentMode.size.height - 49, [UIScreen mainScreen].currentMode.size.width, 49)];
+         }
+         else
+         {
+         [self setFrame:CGRectMake(0, [UIScreen mainScreen].currentMode.size.height/2 - 49, [UIScreen mainScreen].currentMode.size.width/2, 49)];
+         }
+         
+         //UIImageView *imageView_background = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 49)];
+         //[SKUIUtils didLoadImageNotCached:@"tabBar_background.png" inImageView:imageView_background];
+         //[self addSubview:imageView_background];
+         
+         UIButton *button_first = [UIButton buttonWithType:UIButtonTypeCustom];
+         UIButton *button_two = [UIButton buttonWithType:UIButtonTypeCustom];
+         UIButton *button_three = [UIButton buttonWithType:UIButtonTypeCustom];
+         UIButton *button_four = [UIButton buttonWithType:UIButtonTypeCustom];
+         
+         [button_first setFrame:CGRectMake(0, 0, 80, 49)];
+         [button_two setFrame:CGRectMake(button_first.frame.origin.x + button_first.frame.size.width , button_first.frame.origin.y, button_first.frame.size.width, button_first.frame.size.height)];
+         [button_three setFrame:CGRectMake(button_two.frame.origin.x + button_two.frame.size.width, button_two.frame.origin.y, button_first.frame.size.width, button_two.frame.size.height)];
+         [button_four setFrame:CGRectMake(button_three.frame.origin.x + button_three.frame.size.width, button_three.frame.origin.y, button_first.frame.size.width, button_three.frame.size.height)];
+         
+         [button_first setImage:[UIImage imageFileName:@"0.png"] forState:UIControlStateNormal];
+         [button_first setImage:[UIImage imageFileName:@"0_s.png"] forState:UIControlStateHighlighted];
+         [button_first setImage:[UIImage imageFileName:@"0_s.png"] forState:UIControlStateSelected];
+         button_first.selected = YES;
+         button_first.userInteractionEnabled = NO;
+         
+         [button_two setBackgroundImage:[UIImage imageFileName:@"1.png"] forState:UIControlStateNormal];
+         [button_two setBackgroundImage:[UIImage imageFileName:@"1_s.png"] forState:UIControlStateHighlighted];
+         [button_two setBackgroundImage:[UIImage imageFileName:@"1_s.png"] forState:UIControlStateSelected];
+         button_two.adjustsImageWhenHighlighted = NO;
+         
+         [button_three setBackgroundImage:[UIImage imageFileName:@"2.png"] forState:UIControlStateNormal];
+         [button_three setBackgroundImage:[UIImage imageFileName:@"2_s.png"] forState:UIControlStateHighlighted];
+         [button_three setBackgroundImage:[UIImage imageFileName:@"2_s.png"] forState:UIControlStateSelected];
+         button_three.adjustsImageWhenHighlighted = NO;
+         
+         [button_four setBackgroundImage:[UIImage imageFileName:@"3.png"] forState:UIControlStateNormal];
+         [button_four setBackgroundImage:[UIImage imageFileName:@"3_s.png"] forState:UIControlStateHighlighted];
+         [button_four setBackgroundImage:[UIImage imageFileName:@"3_s.png"] forState:UIControlStateSelected];
+         button_four.adjustsImageWhenHighlighted = NO;
+         
+         [button_first setTag:0];
+         [button_two setTag:1];
+         [button_three setTag:2];
+         [button_four setTag:3];
+         
+         [button_first addTarget:self action:@selector(didClickButton_tab:) forControlEvents:UIControlEventTouchUpInside];
+         [button_two addTarget:self action:@selector(didClickButton_tab:) forControlEvents:UIControlEventTouchUpInside];
+         [button_three addTarget:self action:@selector(didClickButton_tab:) forControlEvents:UIControlEventTouchUpInside];
+         [button_four addTarget:self action:@selector(didClickButton_tab:) forControlEvents:UIControlEventTouchUpInside];
+         
+         [self addSubview:button_first];
+         [self addSubview:button_two];
+         [self addSubview:button_three];
+         [self addSubview:button_four];
+         
+         _button_before = button_first; */
     }
     return self;
 }
@@ -155,5 +217,28 @@
 }
 
 
+#pragma mark - 四个按钮点击事件 -
+#pragma mark - 点击Tab -
+/**
+ *  点击Tab
+ *
+ *  @param button_tag 标签值
+ */
+
+/*- (void)didClickButton_tab:(UIButton *)button
+{
+    if(button.tag == _button_before.tag){
+        return;
+    }
+    else{
+        _button_before.userInteractionEnabled = YES;
+        button.userInteractionEnabled = NO;
+        
+        button.selected = YES;
+        _button_before.selected = NO;
+        [_delegate delegate_didClickButton_tab:button.tag];
+        _button_before = button;
+    }
+}*/
 
 @end
