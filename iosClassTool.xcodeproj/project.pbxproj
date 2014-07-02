@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1E141DFF1925DB570070A9CA /* ZMLShadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E141DFE1925DB570070A9CA /* ZMLShadeView.m */; };
+		1EA2CB5D1963E38100C90D5D /* LGTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA2CB5A1963E38100C90D5D /* LGTabBarView.m */; };
+		1EA2CB5E1963E38100C90D5D /* LGTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA2CB5C1963E38100C90D5D /* LGTabBarViewController.m */; };
 		4DAEE7D91900132300C323EB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAEE7D81900132300C323EB /* MBProgressHUD.m */; };
 		F7ADE36818FBEA7D009FBE80 /* Zml_Keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ADE36218FBEA7D009FBE80 /* Zml_Keychain.m */; };
 		F7ADE36918FBEA7D009FBE80 /* Zml_SandBox.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ADE36518FBEA7D009FBE80 /* Zml_SandBox.m */; };
@@ -49,7 +51,6 @@
 		F7BC313518ED5340007994A4 /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC312218ED5340007994A4 /* UIUtils.m */; };
 		F7BC314218ED5517007994A4 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC313F18ED5517007994A4 /* CircleView.m */; };
 		F7BC314318ED5517007994A4 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC314118ED5517007994A4 /* EGORefreshTableHeaderView.m */; };
-		F7BC314718ED57DF007994A4 /* LGTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC314618ED57DF007994A4 /* LGTabBarView.m */; };
 		F7CBBE1818FCC99D00DCCA0E /* KWNSliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CBBE1718FCC99D00DCCA0E /* KWNSliderViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,10 @@
 /* Begin PBXFileReference section */
 		1E141DFD1925DB570070A9CA /* ZMLShadeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZMLShadeView.h; path = Lib/ZMLShadeView/ZMLShadeView.h; sourceTree = "<group>"; };
 		1E141DFE1925DB570070A9CA /* ZMLShadeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZMLShadeView.m; path = Lib/ZMLShadeView/ZMLShadeView.m; sourceTree = "<group>"; };
+		1EA2CB591963E38100C90D5D /* LGTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LGTabBarView.h; path = iosClassTool/Lib/LGTabBarViewController/LGTabBarView.h; sourceTree = SOURCE_ROOT; };
+		1EA2CB5A1963E38100C90D5D /* LGTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LGTabBarView.m; path = iosClassTool/Lib/LGTabBarViewController/LGTabBarView.m; sourceTree = SOURCE_ROOT; };
+		1EA2CB5B1963E38100C90D5D /* LGTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LGTabBarViewController.h; path = iosClassTool/Lib/LGTabBarViewController/LGTabBarViewController.h; sourceTree = SOURCE_ROOT; };
+		1EA2CB5C1963E38100C90D5D /* LGTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LGTabBarViewController.m; path = iosClassTool/Lib/LGTabBarViewController/LGTabBarViewController.m; sourceTree = SOURCE_ROOT; };
 		4DAEE7D71900132300C323EB /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		4DAEE7D81900132300C323EB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		F7ADE36118FBEA7D009FBE80 /* Zml_Keychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zml_Keychain.h; sourceTree = "<group>"; };
@@ -142,8 +147,6 @@
 		F7BC313F18ED5517007994A4 /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
 		F7BC314018ED5517007994A4 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		F7BC314118ED5517007994A4 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
-		F7BC314518ED57DF007994A4 /* LGTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGTabBarView.h; sourceTree = "<group>"; };
-		F7BC314618ED57DF007994A4 /* LGTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGTabBarView.m; sourceTree = "<group>"; };
 		F7CBBE1618FCC99D00DCCA0E /* KWNSliderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWNSliderViewController.h; sourceTree = "<group>"; };
 		F7CBBE1718FCC99D00DCCA0E /* KWNSliderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWNSliderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -469,8 +472,10 @@
 		F7BC314418ED57DF007994A4 /* LGTabBarView */ = {
 			isa = PBXGroup;
 			children = (
-				F7BC314518ED57DF007994A4 /* LGTabBarView.h */,
-				F7BC314618ED57DF007994A4 /* LGTabBarView.m */,
+				1EA2CB591963E38100C90D5D /* LGTabBarView.h */,
+				1EA2CB5A1963E38100C90D5D /* LGTabBarView.m */,
+				1EA2CB5B1963E38100C90D5D /* LGTabBarViewController.h */,
+				1EA2CB5C1963E38100C90D5D /* LGTabBarViewController.m */,
 			);
 			name = LGTabBarView;
 			path = Lib/LGTabBarView;
@@ -582,10 +587,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E141DFF1925DB570070A9CA /* ZMLShadeView.m in Sources */,
+				1EA2CB5E1963E38100C90D5D /* LGTabBarViewController.m in Sources */,
 				F7BC30B418ED40E9007994A4 /* AppDelegate.m in Sources */,
 				F7BC312918ED5340007994A4 /* MBAlertViewItem.m in Sources */,
 				F7BC313218ED5340007994A4 /* MBAlertAbstract.m in Sources */,
 				F7BC312E18ED5340007994A4 /* MBFlatAlertView.m in Sources */,
+				1EA2CB5D1963E38100C90D5D /* LGTabBarView.m in Sources */,
 				4DAEE7D91900132300C323EB /* MBProgressHUD.m in Sources */,
 				F7BC30F018ED4FCB007994A4 /* ZINavigationController.m in Sources */,
 				F7CBBE1818FCC99D00DCCA0E /* KWNSliderViewController.m in Sources */,
@@ -608,7 +615,6 @@
 				F7BC312A18ED5340007994A4 /* AutoLayoutHelpers.m in Sources */,
 				F7ADE36E18FBEA82009FBE80 /* OpenUDID.m in Sources */,
 				F7BC30ED18ED4BE9007994A4 /* SecondViewController.m in Sources */,
-				F7BC314718ED57DF007994A4 /* LGTabBarView.m in Sources */,
 				F7BC30DC18ED43E7007994A4 /* MINavigationController.m in Sources */,
 				F7BC313518ED5340007994A4 /* UIUtils.m in Sources */,
 				F7BC30E318ED4556007994A4 /* ZMViewController.m in Sources */,

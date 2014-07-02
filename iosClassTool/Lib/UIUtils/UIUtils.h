@@ -188,4 +188,16 @@
  */
 + (void)view_hideProgressHUDinView:(UIView *)view;
 
+#pragma mark - 计算字符串高度 -
+/**
+ *  计算字符串高度
+ *
+ *  @param string 内容
+ *  @param width 固定宽度
+ *
+ *  @return 高度
+ */
++ (int)getAttributedStringHeightWithString:(NSAttributedString *)string  WidthValue:(int) width;
+
+
 @end
