@@ -199,5 +199,30 @@
  */
 + (int)getAttributedStringHeightWithString:(NSAttributedString *)string  WidthValue:(int) width;
 
+#pragma mark - 计算方法花费的时间 -
+/**
+ *  计算方法花费的时间
+ *
+ *  @param ^blockvoid 传入方法
+ *
+ *  @return 时间
+ */
+CGFloat getTimeBlock (void (^block)(void));
+
+#pragma mark - 多线程执行 -
+/**
+ *  多线程执行
+ *
+ *  @param ^blockvoid 传入方法
+ */
+void runInBackground (void (^block)(void));
+
+#pragma mark - 主线程执行UI -
+/**
+ *  主线程执行UI
+ *
+ *  @param ^blockvoid 传入方法
+ */
+void runInBackgroundMainUI (void (^block)(void));
 
 @end

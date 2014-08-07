@@ -25,13 +25,13 @@
     if (self)
     {
 
-        if([UIScreen mainScreen].currentMode.size.width == 320)
+        if(iPhone5)
         {
-            [self setFrame:CGRectMake(0, [UIScreen mainScreen].currentMode.size.height - 71, [UIScreen mainScreen].currentMode.size.width, 71)];
+            [self setFrame:CGRectMake(0, 568 - 49, 320, 49)];
         }
         else
         {
-            [self setFrame:CGRectMake(0, [UIScreen mainScreen].currentMode.size.height/2 - 71, [UIScreen mainScreen].currentMode.size.width/2, 71)];
+            [self setFrame:CGRectMake(0, 480 - 49, 320, 49)];
         }
         
         UIImageView *imageView_background = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 71)];

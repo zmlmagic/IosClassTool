@@ -10,6 +10,7 @@
 #import "MBHUDView.h"
 #import "MBProgressHUD.h"
 #import <CoreText/CoreText.h>
+#import <mach/mach_time.h>
 
 @implementation UIUtils
 
@@ -431,6 +432,49 @@ void(* loadingFounction)(id, SEL ,id);
     total_height = total_height + 10;
     
     return total_height;
+}
+
+#pragma mark - 计算方法花费的时间 -
+/**
+ *  计算方法花费的时间
+ *
+ *  @param ^blockvoid 传入方法
+ *
+ *  @return 时间
+ */
+CGFloat getTimeBlock (void (^block)(void)) {
+    mach_timebase_info_data_t info;
+    if (mach_timebase_info(&info) != KERN_SUCCESS) return -1.0;
+    uint64_t start = mach_absolute_time ();
+    block ();
+    uint64_t end = mach_absolute_time ();
+    uint64_t elapsed = end - start;
+    uint64_t nanos = elapsed * info.numer / info.denom;
+    return (CGFloat)nanos / NSEC_PER_SEC;
+}
+
+#pragma mark - 多线程执行 -
+/**
+ *  多线程执行
+ *
+ *  @param ^blockvoid 传入方法
+ */
+void runInBackground (void (^block)(void)) {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        block();
+    });
+}
+
+#pragma mark - 主线程执行UI -
+/**
+ *  主线程执行UI
+ *
+ *  @param ^blockvoid 传入方法
+ */
+void runInBackgroundMainUI (void (^block)(void)){
+    dispatch_async(dispatch_get_main_queue(), ^{
+        block();
+    });
 }
 
 @end
